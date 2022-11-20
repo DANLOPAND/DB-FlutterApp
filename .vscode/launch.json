@@ -1,0 +1,65 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "poke_api - copia - copia",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "poke_api - copia - copia (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "poke_api - copia - copia (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "db_service",
+            "cwd": "package\\db_service",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "db_service (profile mode)",
+            "cwd": "package\\db_service",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "db_service (release mode)",
+            "cwd": "package\\db_service",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "repository",
+            "cwd": "package\\repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "repository (profile mode)",
+            "cwd": "package\\repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "repository (release mode)",
+            "cwd": "package\\repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
