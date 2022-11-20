@@ -1,4 +1,4 @@
-# poke_api
+# Dragon ball Super App
 
 A new Flutter project.
 
