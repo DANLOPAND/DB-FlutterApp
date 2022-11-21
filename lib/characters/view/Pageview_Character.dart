@@ -19,7 +19,7 @@ class CharacterPage extends StatelessWidget {
         children: <Widget>[
           PageView.builder(
             padEnds: false,
-            controller: PageController(viewportFraction: 1 / 2, initialPage: 0),
+            controller: PageController(viewportFraction: 1/3, initialPage: 0),
             itemCount: characters.length,
             itemBuilder: (BuildContext context, int index) {
               return cardCharacter(characters[index]);
