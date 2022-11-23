@@ -12,7 +12,7 @@ Widget cardCharacter(Character character) {
         child: Stack(
           children: [
             ImageFiltered(
-              imageFilter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+              imageFilter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Image.network(character.imageUrl, repeat: ImageRepeat.repeat, fit: BoxFit.cover),
             ),
             Center(child: Image.network(character.imageUrl)),

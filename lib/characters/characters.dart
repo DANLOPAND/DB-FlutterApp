@@ -7,6 +7,9 @@ import 'view/Pageview_Character.dart';
 class CharactersPage extends StatelessWidget {
   const CharactersPage({super.key});
 
+  //function to get the asset of the planet
+
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CharactersCubit, CharactersState>(
@@ -28,8 +31,13 @@ class CharactersPage extends StatelessWidget {
                     builder: (context, state) {
                       switch (state.status) {
                         case CharacterMainStatus.initial:
-                          return const Center(
-                            child: Text('Initial'),
+                          return Container(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/img/wp.jgp',),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           );
                         case CharacterMainStatus.loading:
                           return const Center(
@@ -38,48 +46,86 @@ class CharactersPage extends StatelessWidget {
                         case CharacterMainStatus.success:
                           return Container(
                             //asset de background
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    '/img/CN-01.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                             width: double.infinity,
-                            color: Colors.black,
+                            //color: Color.fromARGB(115, 43, 43, 43),
                             child: Stack(
                               children: [
+                                Positioned(
+                                  child: 
+                                  Container(
+                                    width: double.infinity,
+                                    height: 100,
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage('/img/Db-Logo.png'),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
                                 Center(
-                                  child: Image.network(state.character.imageUrl,),
+                                  child: Image.network(state.character.imageUrl,width: 300, height: 350,),
                                 ),
                                 Positioned(
-                                  bottom: 70,
-                                  left: 35,
+                                  bottom: 20,
+                                  left: 20,
                                   child: Container(
+                                    width: 400,
+                                    height: 100,
                                     decoration: BoxDecoration(
-                                      color: Color.fromARGB(26, 112, 112, 112),
+                                      color: const Color.fromARGB(26, 112, 112, 112),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     
                                     child: Column(
-                                      children: [
+                                      children:  [
                                         Row(
                                           children: [
-                                            //Text(' Nombre: ', style: TextStyle(color: Colors.white, fontSize: 20),),
-                                            Text(state.character.name, style: TextStyle(color: Colors.white, fontSize: 30),),
+                                            Text("${state.character.name}".toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 27),),
+
                                           ],
                                         ),
-                                        SizedBox(height: 5,),
+                                        SizedBox(height: 10,),
                                         Row(
                                           children: [
-                                            //Text(' Especie: ', style: TextStyle(color: Colors.white, fontSize: 20),),
-                                            Text(state.character.role, style: TextStyle(color: Colors.white, fontSize: 20),),
+                                            Text("${state.character.role}".toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 15),),
                                           ],
                                         ),
-                                        SizedBox(height: 5,),
+                                        SizedBox(height: 10,),
                                         Row(
                                           children: [
-                                            //Text(' role: ', style: TextStyle(color: Colors.white, fontSize: 20),),
-                                            Text(state.character.status, style: TextStyle(color: Colors.white, fontSize: 20),),
+                                            Text("${state.character.originPlanet}".toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 15),),
                                           ],
                                         ),
+                                      
                                       ],
                                     ),
                                   ),
                                ),
+                              //   Positioned(child: Stack(
+                              //      children: [
+                              //        Positioned(
+                              //          top: 10,
+                              //          right: 10,
+                              //          child: Container(
+                              //           width: 30,
+                              //           height: 30,
+                              //           decoration: BoxDecoration(
+                              //             color: Colors.white,
+                              //             borderRadius: BorderRadius.circular(10),
+                              //           ),
+                              //         ),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
                              ],
                             ),
                               
@@ -90,11 +136,14 @@ class CharactersPage extends StatelessWidget {
                           );
                       }
                     },
-                  )),
+                  )),  
               Expanded(
                   flex: 1,
-                  child: CharacterPage(
-                      characters: state.characters, context: context))
+                  child: Container(
+                    color: Color.fromARGB(255, 34, 34, 34),
+                    child: CharacterPage(
+                        characters: state.characters, context: context),
+                  ))
             ]);
           case CharactersStatus.failure:
             return const Center(
