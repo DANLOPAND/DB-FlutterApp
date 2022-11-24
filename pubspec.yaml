@@ -69,7 +69,13 @@ flutter:
   assets:
     - assets/img/Db-Logo.png
     - assets/img/CN-01.png
-    - assets/img/wp.jpg
+    - assets/img/Walper.jpg
+    - assets/img/Nucleo.jpg
+    - assets/img/Pvegeta.jpg
+    - assets/img/Sadala.jpg
+    - assets/img/Tierra.jpg
+    - assets/img/Tsufrui.jpg
+    - assets/img/Yardat.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

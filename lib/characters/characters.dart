@@ -8,7 +8,29 @@ class CharactersPage extends StatelessWidget {
   const CharactersPage({super.key});
 
   //function to get the asset of the planet
+  String getAsset(String planet) {
+    switch (planet) {
+      case 'Planeta Tsufrui':
+        return '/img/Tsufrui.jpg';
 
+      case 'Planeta Sadala':
+        return '/img/Sadala.jpg';
+
+      case 'Planeta Tierra':
+        return '/img/Tierra.jpg';
+
+      case 'Planeta del Núcleo del Mundo':
+        return '/img/Nucleo.jpg';
+      
+      case 'Planeta Vegeta':
+        return '/img/Pvegeta.jpg';
+      
+      case 'Planeta Yardat':
+        return '/img/Yardat.jpg';
+
+    }
+    return '/img/CN-01.png';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +56,9 @@ class CharactersPage extends StatelessWidget {
                           return Container(
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage('assets/img/wp.jgp',),
+                                image: AssetImage(
+                                  '/img/Walper.jpg',
+                                ),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -46,10 +70,9 @@ class CharactersPage extends StatelessWidget {
                         case CharacterMainStatus.success:
                           return Container(
                             //asset de background
-                            decoration: const BoxDecoration(
+                            decoration:  BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage(
-                                    '/img/CN-01.png'),
+                                image: AssetImage(getAsset(state.character.originPlanet)),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -58,8 +81,7 @@ class CharactersPage extends StatelessWidget {
                             child: Stack(
                               children: [
                                 Positioned(
-                                  child: 
-                                  Container(
+                                  child: Container(
                                     width: double.infinity,
                                     height: 100,
                                     decoration: const BoxDecoration(
@@ -71,72 +93,76 @@ class CharactersPage extends StatelessWidget {
                                 ),
 
                                 Center(
-                                  child: Image.network(state.character.imageUrl,width: 300, height: 350,),
+                                  child: Image.network(
+                                    state.character.imageUrl,
+                                    width: 300,
+                                    height: 350,
+                                  ),
                                 ),
                                 Positioned(
                                   bottom: 20,
                                   left: 20,
                                   child: Container(
-                                    width: 400,
+                                    width: 700,
                                     height: 100,
                                     decoration: BoxDecoration(
-                                      color: const Color.fromARGB(26, 112, 112, 112),
+                                      color: Color.fromARGB(171, 12, 12, 12),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    
                                     child: Column(
-                                      children:  [
-                                        Row(
-                                          children: [
-                                            Text("${state.character.name}".toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 27),),
-
-                                          ],
+                                      children: [
+                                        Container(
+                                          margin: const EdgeInsets.only(left: 15),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                state.character.name.toUpperCase(),
+                                                style: const TextStyle(color: Colors.white,fontSize: 27),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                        SizedBox(height: 10,),
-                                        Row(
-                                          children: [
-                                            Text("${state.character.role}".toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 15),),
-                                          ],
+                                        const SizedBox(
+                                          height: 10,
                                         ),
-                                        SizedBox(height: 10,),
-                                        Row(
-                                          children: [
-                                            Text("${state.character.originPlanet}".toUpperCase(), style: const TextStyle(color: Colors.white, fontSize: 15),),
-                                          ],
+                                        Container(
+                                          margin: const EdgeInsets.only(left: 15),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                state.character.role.toUpperCase(),
+                                                style: const TextStyle(color: Colors.white,fontSize: 15),
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Container(
+                                          margin: const EdgeInsets.only(left: 15),
+                                          child: Row(
+                                            children: [
+                                              Text(state.character.originPlanet.toUpperCase(),
+                                                style: const TextStyle(color: Colors.white,fontSize: 15),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
-                               ),
-                              //   Positioned(child: Stack(
-                              //      children: [
-                              //        Positioned(
-                              //          top: 10,
-                              //          right: 10,
-                              //          child: Container(
-                              //           width: 30,
-                              //           height: 30,
-                              //           decoration: BoxDecoration(
-                              //             color: Colors.white,
-                              //             borderRadius: BorderRadius.circular(10),
-                              //           ),
-                              //         ),
-                              //       ),
-                              //     ],
-                              //   ),
-                              // ),
-                             ],
+                                ),
+                              ],
                             ),
-                              
-                            );
+                          );
                         case CharacterMainStatus.failure:
                           return const Center(
                             child: Text('Failure'),
                           );
                       }
                     },
-                  )),  
+                  )),
               Expanded(
                   flex: 1,
                   child: Container(
