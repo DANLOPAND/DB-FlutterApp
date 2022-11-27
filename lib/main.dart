@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'Pages/home_page.dart';
+import 'Page/home_page.dart';
 import 'package:repository/repository.dart';
 
 

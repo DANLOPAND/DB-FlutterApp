@@ -9,6 +9,7 @@ class CharacterMainCubit extends Cubit<CharacterMainState> {
   
 
   void setCharacter(character) async {
+    print('setCharacter');
         emit(state.copyWith(status: CharacterMainStatus.loading));
     try {
       emit(state.copyWith(status: CharacterMainStatus.success, character: character));

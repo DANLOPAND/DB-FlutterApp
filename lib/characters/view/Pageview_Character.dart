@@ -4,11 +4,11 @@ import '../../character_main/cubit/character_main_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Card_Character.dart';
 
-class CharacterPage extends StatelessWidget {
+class Pageview_Character extends StatelessWidget {
   final BuildContext context;
   final List<Character> characters;
 
-  const CharacterPage(
+  const Pageview_Character(
       {Key? key, required this.characters, required this.context})
       : super(key: key);
 

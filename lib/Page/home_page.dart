@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../characters/characters.dart';
 import '../characters/cubit/characters_cubit.dart';
 import '../character_main/cubit/character_main_cubit.dart';
 import 'package:repository/repository.dart';
 import 'package:repository/src/models/character.dart';
-
-
+import 'characters_page.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -16,7 +14,8 @@ class MyHomePage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => CharactersCubit(context.read<Repository>())..getCharacters(),
+          create: (context) =>
+              CharactersCubit(context.read<Repository>())..getCharacters(),
         ),
         BlocProvider(
           create: (context) => CharacterMainCubit(Character.empty()),

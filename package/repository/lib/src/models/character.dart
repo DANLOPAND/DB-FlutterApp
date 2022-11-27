@@ -5,6 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:repository/src/models/planet.dart';
+
 /// {@template model_character}
 /// My new Flutter package
 /// {@endtemplate}
@@ -22,11 +24,16 @@ class Character {
     required this.universe,
   });
 
+
+
   factory Character.fromJson(Map<String, dynamic> json) => Character(
         id: json['id'].toString(),
         imageUrl: json['imageUrl'].toString(),
         name: json['name'].toString(),
-        originPlanet: json['originplanet'].toString(),
+        originPlanet: Planet(
+          name: json['originplanet'].toString(),
+          imageUrl: 'img/${json['originplanet'].toString().toLowerCase().replaceAll(" ", "-").replaceAll('ú', 'u')}.jpg',
+        ),
         role: json['role'].toString(),
         specie: json['specie'].toString(),
         status: json['status'].toString(),
@@ -38,7 +45,7 @@ class Character {
         id: '',
         imageUrl: '',
         name: '',
-        originPlanet: '',
+        originPlanet: Planet(name: '', imageUrl: ''),
         role: '',
         specie: '',
         status: '',
@@ -49,7 +56,7 @@ class Character {
   String id;
   String imageUrl;
   String name;
-  String originPlanet;
+  Planet originPlanet;
   String role;
   String specie;
   String status;
