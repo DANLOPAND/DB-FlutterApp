@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:repository/src/models/character.dart';
 import '../../character_main/cubit/character_main_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'Card_Character.dart';
+import 'card_character.dart';
 
 class Pageview_Character extends StatelessWidget {
   final BuildContext context;

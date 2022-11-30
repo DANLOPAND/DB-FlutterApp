@@ -32,7 +32,7 @@ class Character {
         name: json['name'].toString(),
         originPlanet: Planet(
           name: json['originplanet'].toString(),
-          imageUrl: 'img/${json['originplanet'].toString().toLowerCase().replaceAll(" ", "-").replaceAll('ú', 'u')}.jpg',
+          imageUrl: 'assets/img/${json['originplanet'].toString().toLowerCase().replaceAll(" ", "-").replaceAll('ú', 'u')}.jpg',
         ),
         role: json['role'].toString(),
         specie: json['specie'].toString(),

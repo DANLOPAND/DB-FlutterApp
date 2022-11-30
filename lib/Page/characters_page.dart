@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../character_main/cubit/character_main_cubit.dart';
 import '../characters/cubit/characters_cubit.dart';
-
 import '../characters/view/Pageview_Character.dart';
 import '../characters/view/presentation_character.dart';
 

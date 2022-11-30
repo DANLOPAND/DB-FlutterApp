@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:poke_api/characters/view/planet_button.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:poke_api/characters/view/share_button.dart';
 import 'package:repository/src/models/character.dart';
-
 
 Widget presentationCharacter(BuildContext context, Character character) {
   return Container(
@@ -23,7 +23,7 @@ Widget presentationCharacter(BuildContext context, Character character) {
               height: 100,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('/img/Db-Logo.png'),
+                  image: AssetImage('assets/img/Db-Logo.png'),
                 ),
               ),
             ),
@@ -33,6 +33,12 @@ Widget presentationCharacter(BuildContext context, Character character) {
               character.imageUrl,
               width: 300,
               height: 350,
+              loadingBuilder: (context, child, loadingProgress) {
+                return loadingProgress == null
+                    ? child
+                    : const Center(
+                        child: CircularProgressIndicator(),
+                      );},
             ),
           ),
           Positioned(
@@ -94,7 +100,8 @@ Widget presentationCharacter(BuildContext context, Character character) {
               ),
             ),
           ),
-          planetButton(context)
+          planetButton(context),
+          shareButton(context, character.imageUrl, character.name),
         ],
       ),
     ),

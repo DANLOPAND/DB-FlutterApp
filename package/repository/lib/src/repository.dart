@@ -5,6 +5,7 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+
 import 'package:repository/src/models/character.dart';
 import 'package:service/src/service.dart';
 
@@ -14,5 +15,10 @@ class Repository {
   Future<List<Character>> getCharacter() async {
     final characters = await _service.getCharacters();
     return characters;
+  }
+
+  Future<String> getImage(String url,String name) async {
+    final filePath = await _service.getImage(url,name);
+    return filePath;
   }
 }
