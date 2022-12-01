@@ -4,6 +4,8 @@
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -16,6 +18,7 @@ import 'package:repository/src/models/character.dart';
 
 class Service {
   /// {@macro service}
+  //en esta class service se maneja la obtencion de los datos de la api utilizando el endpoint que esta nos trae
   final String _baseUrl = 'dragon-ball-super-api.herokuapp.com';
   final String _endPoint = '/api/characters';
 
@@ -43,7 +46,7 @@ class Service {
         throw Exception('Failed to load image');
       }
     }
-
+    //creamosuna variable para guardar imagenes como la de la tarjeta y el fondo de esta
     final card = decodeImage(
       await saveImage(
         'https://cdn.discordapp.com/attachments/745446154925375488/1046906493628317796/Card.png',
@@ -60,7 +63,7 @@ class Service {
     final mergedImage = img.Image(card!.width, card.height);
 
     copyInto(mergedImage, background!);
-
+    //damos las dimenciones de la imagen de la tarjeta, del personaje y del fondo
     copyInto(
       mergedImage,
       characterImg,
