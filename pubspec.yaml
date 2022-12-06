@@ -71,16 +71,13 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/img/Db-Logo.png
-    - assets/img/desconocido.jpg
-    - assets/img/planeta-del-nucleo-del-mundo.jpg
-    - assets/img/planeta-sadala.jpg
-    - assets/img/planeta-tierra.jpg
-    - assets/img/planeta-tsufrui.jpg
-    - assets/img/planeta-vegeta.jpg
-    - assets/img/planeta-yardat.jpg
+    - assets/img/unknown.jpg
+    - assets/img/abadango.jpg
+    - assets/img/earth-(replacement-dimension).jpg
     - assets/img/wallpaper.jpg
     - assets/img/character-placeholder.png
+    - assets/img/Db-Logo.png
+    - assets/img/earth-(c-137).jpg
     - assets/img/
 
   # To add assets to your application, add an assets section, like this:

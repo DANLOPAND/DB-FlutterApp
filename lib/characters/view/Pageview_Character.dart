@@ -14,19 +14,18 @@ class Pageview_Character extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final characterReversed = characters.reversed.toList();
     return SizedBox(
       child: PageView(
         children: <Widget>[
           PageView.builder(
             padEnds: false,
             controller: PageController(viewportFraction: 1/3, initialPage: 0),
-            itemCount: characterReversed.length,
+            itemCount: characters.length,
             itemBuilder: (BuildContext context, int index) {
-              return cardCharacter(characterReversed[index]);
+              return cardCharacter(characters[index]);
             },
             onPageChanged: (value) {
-              context.read<CharacterMainCubit>().setCharacter(characterReversed[value]);
+              context.read<CharacterMainCubit>().setCharacter(characters[value]);
             },
           ),
         ],

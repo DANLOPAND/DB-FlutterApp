@@ -24,7 +24,7 @@ class CharactersPage extends StatelessWidget {
               child: Text('Loading'),
             );
           case CharactersStatus.success:
-            final firstCharacter = state.characters.last;
+            final firstCharacter = state.characters.first;
             return Column(children: [
               Expanded(
                   flex: 3,

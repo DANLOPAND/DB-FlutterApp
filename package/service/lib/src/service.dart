@@ -19,15 +19,16 @@ import 'package:repository/src/models/character.dart';
 class Service {
   /// {@macro service}
   //en esta class service se maneja la obtencion de los datos de la api utilizando el endpoint que esta nos trae
-  final String _baseUrl = 'dragon-ball-super-api.herokuapp.com';
-  final String _endPoint = '/api/characters';
+  final String _baseUrl = 'rickandmortyapi.com';
+  final String _endPoint = '/api/character';
 
   Future<List<Character>> getCharacters() async {
     final response = await http.get(Uri.parse('https://$_baseUrl$_endPoint'));
     if (response.statusCode == 200) {
       final utf = utf8.decode(response.bodyBytes);
-      final body = jsonDecode(utf) as List;
+      final body = jsonDecode(utf)['results'] as List;
       final characters = body.map<Character>((dynamic json) {
+        print(json['origin']['name'].toString());
         return Character.fromJson(json as Map<String, dynamic>);
       }).toList();
       return characters;
@@ -35,6 +36,7 @@ class Service {
       throw Exception('Failed to load characters');
     }
   }
+
 
   Future<String> getImage(String url,String name) async {
     Future<Uint8List> saveImage(String url) async {

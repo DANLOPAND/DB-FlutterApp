@@ -28,17 +28,17 @@ class Character {
 
   factory Character.fromJson(Map<String, dynamic> json) => Character(
         id: json['id'].toString(),
-        imageUrl: json['imageUrl'].toString(),
+        imageUrl: json['image'].toString(),
         name: json['name'].toString(),
         originPlanet: Planet(
-          name: json['originplanet'].toString(),
-          imageUrl: 'assets/img/${json['originplanet'].toString().toLowerCase().replaceAll(" ", "-").replaceAll('ú', 'u')}.jpg',
+          name: json['origin']['name'].toString(),
+          imageUrl: 'assets/img/${json['origin']['name'].toString().toLowerCase().replaceAll(" ", "-").replaceAll('ú', 'u')}.jpg',
         ),
-        role: json['role'].toString(),
-        specie: json['specie'].toString(),
+        role: json['type'].toString(),
+        specie: json['species'].toString(),
         status: json['status'].toString(),
-        transform: json['transform'].toString(),
-        universe: json['universe'].toString(),
+        transform: '',
+        universe: '',
       );
 
   factory Character.empty() => Character(
